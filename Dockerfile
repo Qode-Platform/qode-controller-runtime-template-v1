@@ -2,11 +2,11 @@
 # Adapted from the fleet's go stack pack.
 #
 # Deviations, and why:
-#   - golang:1.25-alpine, not the pack's 1.23: `go mod tidy` resolves this
+#   - golang:1.26-alpine, not the pack's 1.23: `go mod tidy` resolves this
 #     module to go 1.25 (gin 1.12 alone requires >= 1.25).
 #
 # BASE_PATH is not baked in - the binary reads it from the environment.
-FROM golang:1.25-alpine AS build
+FROM golang:1.26-alpine AS build
 WORKDIR /src
 COPY go.mod go.sum* ./
 RUN go mod download
